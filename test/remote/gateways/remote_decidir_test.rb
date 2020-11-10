@@ -83,7 +83,32 @@ class RemoteDecidirTest < Test::Unit::TestCase
             code: 17,
             description: 'Campo MDD17'
           }
-        ]
+        ],
+        bill_to: {
+                postal_code: '12345',
+                last_name: 'Smith',
+                country: 'US',
+                street1: '123 Mockingbird Lane',
+                state: 'TN',
+                email: 'dootdoot@hotmail.com',
+                customer_id: '111111',
+                phone_number: '555-5555',
+                first_name: 'Joe',
+                city: 'Pantsville'
+            },
+            customer_in_site: {
+              password: '',
+              is_guest: false,
+              street: '123 Mockingbird Lane',
+              cellphone_number: '555-1212',
+              num_of_transactions: 48,
+              date_of_birth:'8-4-80',
+              days_in_site: 105
+          },
+          purchase_totals: {
+            currency: 'USD',
+            amount: 100
+        },
       },
       installments: '12',
       site_id: '99999999'
@@ -148,7 +173,7 @@ class RemoteDecidirTest < Test::Unit::TestCase
   def test_failed_authorize
     response = @gateway_for_auth.authorize(@amount, @declined_card, @options)
     assert_failure response
-    assert_equal 'TARJETA INVALIDA | invalid_number', response.message
+    assert_equal 'PEDIR AUTORIZACION | request_authorization_card', response.message
     assert_match Gateway::STANDARD_ERROR_CODE[:invalid_number], response.error_code
   end
 
@@ -223,7 +248,7 @@ class RemoteDecidirTest < Test::Unit::TestCase
   def test_failed_verify
     response = @gateway_for_auth.verify(@declined_card, @options)
     assert_failure response
-    assert_match %r{TARJETA INVALIDA | invalid_number}, response.message
+    assert_match %r{PEDIR AUTORIZACION | request_authorization_card}, response.message
   end
 
   def test_invalid_login
