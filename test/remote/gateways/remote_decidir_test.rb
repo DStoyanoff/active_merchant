@@ -85,30 +85,30 @@ class RemoteDecidirTest < Test::Unit::TestCase
           }
         ],
         bill_to: {
-                postal_code: '12345',
-                last_name: 'Smith',
-                country: 'US',
-                street1: '123 Mockingbird Lane',
-                state: 'TN',
-                email: 'dootdoot@hotmail.com',
-                customer_id: '111111',
-                phone_number: '555-5555',
-                first_name: 'Joe',
-                city: 'Pantsville'
-            },
-            customer_in_site: {
-              password: '',
-              is_guest: false,
-              street: '123 Mockingbird Lane',
-              cellphone_number: '555-1212',
-              num_of_transactions: 48,
-              date_of_birth:'8-4-80',
-              days_in_site: 105
-          },
-          purchase_totals: {
-            currency: 'USD',
-            amount: 100
+          postal_code: '12345',
+          last_name: 'Smith',
+          country: 'US',
+          street1: '123 Mockingbird Lane',
+          state: 'TN',
+          email: 'dootdoot@hotmail.com',
+          customer_id: '111111',
+          phone_number: '555-5555',
+          first_name: 'Joe',
+          city: 'Pantsville'
         },
+        customer_in_site: {
+          password: '',
+          is_guest: false,
+          street: '123 Mockingbird Lane',
+          cellphone_number: '555-1212',
+          num_of_transactions: 48,
+          date_of_birth: '8-4-80',
+          days_in_site: 105
+        },
+        purchase_totals: {
+          currency: 'USD',
+          amount: 100
+        }
       },
       installments: '12',
       site_id: '99999999'
