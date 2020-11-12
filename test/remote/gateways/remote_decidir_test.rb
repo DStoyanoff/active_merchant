@@ -174,7 +174,7 @@ class RemoteDecidirTest < Test::Unit::TestCase
     response = @gateway_for_auth.authorize(@amount, @declined_card, @options)
     assert_failure response
     assert_equal 'PEDIR AUTORIZACION | request_authorization_card', response.message
-    assert_match Gateway::STANDARD_ERROR_CODE[:invalid_number], response.error_code
+    assert_match 'call_issuer', response.error_code
   end
 
   def test_failed_partial_capture

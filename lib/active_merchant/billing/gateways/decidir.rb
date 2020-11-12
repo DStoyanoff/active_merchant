@@ -217,6 +217,7 @@ module ActiveMerchant #:nodoc:
           hsh[:retail_transaction_data] = options[:retail_transaction_data] if valid_fraud_detection_option?(options[:retail_transaction_data])
           hsh[:ship_to] = options[:ship_to] if valid_fraud_detection_option?(options[:ship_to])
           hsh[:tax_voucher_required] = options[:tax_voucher_required] if valid_fraud_detection_option?(options[:tax_voucher_required])
+          hsh[:copy_paste_card_data] = options[:copy_paste_card_data] if valid_fraud_detection_option?(options[:copy_paste_card_data])
         end
       end
 
